@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "LoadSampleData",
+    "description": "Notebook to load sample data into SampleLakehouse"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1b2e9da8-1b4a-adcb-4902-1492978f8aa1"
+  }
+}
