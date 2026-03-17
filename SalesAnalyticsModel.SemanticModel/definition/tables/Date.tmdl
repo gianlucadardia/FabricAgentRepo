@@ -1,0 +1,54 @@
+table Date
+	dataCategory: Time
+
+	column date_key
+		dataType: dateTime
+		isKey
+		formatString: Short Date
+		sourceColumn: date_key
+
+	column year
+		dataType: int64
+		summarizeBy: none
+		sourceColumn: year
+
+	column month_number
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: month_number
+
+	column month_name
+		dataType: string
+		sourceColumn: month_name
+		sortByColumn: month_number
+
+	column quarter
+		dataType: string
+		sourceColumn: quarter
+
+	column day_of_week
+		dataType: string
+		sourceColumn: day_of_week
+
+	hierarchy 'Calendar Hierarchy'
+
+		level Year
+			column: year
+
+		level Quarter
+			column: quarter
+
+		level 'Month Name'
+			column: month_name
+
+		level Date
+			column: date_key
+
+	partition Date = entity
+		mode: directLake
+		source
+			entityName: dates
+			schemaName: dbo
+			expressionSource: DL_Lakehouse
+

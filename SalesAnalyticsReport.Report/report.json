@@ -1,0 +1,54 @@
+{
+  "config": "{\"version\":\"5.53\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU06\",\"reportVersionAtImport\":\"5.53\",\"type\":\"SharedResources\"}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true}",
+  "layoutOptimization": 0,
+  "resourcePackages": [],
+  "sections": [
+    {
+      "config": "{\"visibility\":0,\"displayOption\":1}",
+      "displayName": "Sales Analysis",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"barChartOrders\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":280,\"z\":3,\"width\":1240,\"height\":400,\"tabOrder\":3}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Fact Orders.status\"}],\"Y\":[{\"queryRef\":\"CountNonNull(Fact Orders.order_id)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Fact Orders\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"status\"},\"Name\":\"Fact Orders.status\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Total Orders\"},\"Name\":\"Fact Orders.Total Orders\"}]},\"objects\":{\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 400.00,
+          "width": 1240.00,
+          "x": 20.00,
+          "y": 280.00,
+          "z": 3.00
+        },
+        {
+          "config": "{\"name\":\"headerTextBox\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":1280,\"height\":80,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Sales Analytics Dashboard\",\"textStyle\":{\"fontFamily\":\"Segoe UI Semibold\",\"fontSize\":\"28px\",\"color\":\"#252423\"}}],\"horizontalTextAlignment\":\"center\"}]}}]}}}",
+          "filters": "[]",
+          "height": 80.00,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"slicerCategory\",\"layouts\":[{\"id\":0,\"position\":{\"x\":290,\"y\":100,\"z\":2,\"width\":250,\"height\":160,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Product.category\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"p\",\"Entity\":\"Product\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"p\"}},\"Property\":\"category\"},\"Name\":\"Product.category\"}]},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 160.00,
+          "width": 250.00,
+          "x": 290.00,
+          "y": 100.00,
+          "z": 2.00
+        },
+        {
+          "config": "{\"name\":\"slicerCity\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":100,\"z\":1,\"width\":250,\"height\":160,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Customer.city\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Customer\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"city\"},\"Name\":\"Customer.city\"}]},\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 160.00,
+          "width": 250.00,
+          "x": 20.00,
+          "y": 100.00,
+          "z": 1.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

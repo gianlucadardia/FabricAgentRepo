@@ -1,0 +1,48 @@
+table 'Fact Orders'
+
+	/// Total number of orders
+	measure 'Total Orders' = COUNTROWS('Fact Orders')
+		formatString: #,##0
+
+	/// Total quantity sold
+	measure 'Total Quantity' = SUM('Fact Orders'[quantity])
+		formatString: #,##0
+
+	column order_id
+		dataType: int64
+		isKey
+		summarizeBy: none
+		sourceColumn: order_id
+
+	column customer_id
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column product_id
+		dataType: int64
+		isHidden
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column quantity
+		dataType: int64
+		sourceColumn: quantity
+
+	column order_date
+		dataType: dateTime
+		isHidden
+		sourceColumn: order_date
+
+	column status
+		dataType: string
+		sourceColumn: status
+
+	partition 'Fact Orders' = entity
+		mode: directLake
+		source
+			entityName: orders
+			schemaName: dbo
+			expressionSource: DL_Lakehouse
+

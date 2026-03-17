@@ -1,0 +1,47 @@
+table Customer
+
+	/// Total number of customers
+	measure '# Customers' = COUNTROWS(Customer)
+		formatString: #,##0
+
+	column customer_id
+		dataType: int64
+		isHidden
+		isKey
+		summarizeBy: none
+		sourceColumn: customer_id
+
+	column first_name
+		dataType: string
+		sourceColumn: first_name
+
+	column last_name
+		dataType: string
+		sourceColumn: last_name
+
+	column email
+		dataType: string
+		isHidden
+		sourceColumn: email
+
+	column city
+		dataType: string
+		dataCategory: City
+		sourceColumn: city
+
+	column country
+		dataType: string
+		dataCategory: Country
+		sourceColumn: country
+
+	column signup_date
+		dataType: dateTime
+		sourceColumn: signup_date
+
+	partition Customer = entity
+		mode: directLake
+		source
+			entityName: customers
+			schemaName: dbo
+			expressionSource: DL_Lakehouse
+

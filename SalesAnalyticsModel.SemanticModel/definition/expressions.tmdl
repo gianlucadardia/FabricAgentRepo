@@ -1,0 +1,6 @@
+expression DL_Lakehouse =
+		let
+			Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/ea456edd-6df5-48c5-98df-d001f8ec5b61/1918d65e-31bf-40a4-b7af-8b4062f430b1", [HierarchicalNavigation=true])
+		in
+			Source
+

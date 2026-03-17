@@ -1,0 +1,40 @@
+table Product
+
+	/// Total number of products
+	measure '# Products' = COUNTROWS(Product)
+		formatString: #,##0
+
+	column product_id
+		dataType: int64
+		isHidden
+		isKey
+		summarizeBy: none
+		sourceColumn: product_id
+
+	column product_name
+		dataType: string
+		sourceColumn: product_name
+
+	column category
+		dataType: string
+		sourceColumn: category
+
+	column price
+		dataType: decimal
+		sourceColumn: price
+
+	column cost
+		dataType: decimal
+		sourceColumn: cost
+
+	column in_stock
+		dataType: boolean
+		sourceColumn: in_stock
+
+	partition Product = entity
+		mode: directLake
+		source
+			entityName: products
+			schemaName: dbo
+			expressionSource: DL_Lakehouse
+
